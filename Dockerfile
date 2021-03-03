@@ -1,6 +1,6 @@
 FROM alpine:3.13.2 AS build
 
-RUN apk update && apk add build-base gcc perl libtool linux-headers curl cmake automake m4 libtool intltool autoconf
+RUN apk update && apk add build-base gcc perl libtool linux-headers curl cmake automake m4 libtool intltool autoconf snappy snappy-dev
 
 COPY . /build
 WORKDIR /build
