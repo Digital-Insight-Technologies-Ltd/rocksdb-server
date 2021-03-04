@@ -109,6 +109,7 @@ void log(char c, const char *format, ...){
 
 void opendb(){
 	rocksdb::Options options;
+	options.compression = rocksdb::CompressionType::kZSTD;
 	options.create_if_missing = true;
 	if (inmem){
 		options.env = rocksdb::NewMemEnv(rocksdb::Env::Default());

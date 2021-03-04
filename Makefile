@@ -12,6 +12,7 @@ all: rocksdb libuv
 		src/rocksdb-6.15.5/libbz2.a \
 		src/rocksdb-6.15.5/libz.a \
 		src/rocksdb-6.15.5/libsnappy.a \
+		src/rocksdb-6.15.5/libzstd.a \
 		src/libuv-1.10.1/build/lib/libuv.a
 clean:
 	rm -f rocksdb-server
@@ -37,7 +38,8 @@ rocksdb: src/rocksdb-6.15.5 \
 	src/rocksdb-6.15.5/librocksdb.a \
 	src/rocksdb-6.15.5/libz.a \
 	src/rocksdb-6.15.5/libbz2.a \
-	src/rocksdb-6.15.5/libsnappy.a
+	src/rocksdb-6.15.5/libsnappy.a \
+	src/rocksdb-6.15.5/libzstd.a
 src/rocksdb-6.15.5:
 	cd src && tar xf rocksdb-6.15.5.tar.gz
 src/rocksdb-6.15.5/librocksdb.a:
@@ -48,4 +50,6 @@ src/rocksdb-6.15.5/libbz2.a:
 	DEBUG_LEVEL=0 make -C src/rocksdb-6.15.5 libbz2.a
 src/rocksdb-6.15.5/libsnappy.a:
 	DEBUG_LEVEL=0 make -C src/rocksdb-6.15.5 libsnappy.a
+src/rocksdb-6.15.5/libzstd.a:
+	DEBUG_LEVEL=0 make -C src/rocksdb-6.15.5 libzstd.a
 
